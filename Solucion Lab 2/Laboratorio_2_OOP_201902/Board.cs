@@ -49,12 +49,20 @@ namespace Laboratorio_2_OOP_201902
     //Metodos
 
      public void AddCard(Card.Card card, int playerId = -1, string buffType = null)
-        {
+        { 
+
             if (card.GetType().Name == nameof(CombatCard))
             {
-                if (playerId ==0|| PlayerId == 1)
+                if (playerId ==0|| playerId == 1)
                 {
-                    foreach ()
+                    if (playerCards[playerId].ContainsKey(card.Type))
+                    {
+                        playerCards[playerId][card.Type].Add(card);
+                    }
+                    else
+                    {
+                        playerCards[playerId].Add(card.Type, new List<Card.Card>() { card});
+                    }
                 }
             }
         }
